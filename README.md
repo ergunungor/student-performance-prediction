@@ -26,5 +26,21 @@ The goal is to analyze how different factors contribute to academic performance 
 * **R² Score:** ~0.66 (The model explains 66% of the variance in exam scores).
 * **Insight:** Study hours are the most significant predictor of success.
 
+## 🚀 Model Improvements (v2.0)
+
+After the initial deployment, I analyzed the feature importance and realized that the `course` (education level) variable had a hierarchical nature (e.g., *Masters > Bachelors > High School*).
+
+To improve the model, I applied the following techniques:
+1.  **Feature Engineering (Ordinal Encoding):** Instead of standard label encoding, I mapped the `course` variable based on educational hierarchy (Diploma < BA/BBA < B.Tech).
+2.  **Feature Scaling (Standardization):** Applied `StandardScaler` to normalize the range of independent variables.
+
+### 📊 Results Comparison
+| Metric | Initial Model (v1.0) | Optimized Model (v2.0) |
+| :--- | :---: | :---: |
+| **R² Score** | ~66.00% | **71.94%** |
+| **Method** | Linear Regression (Raw) | Linear Regression (Scaled + Ordinal) |
+
+*This update resulted in a **~9% performance boost**, proving that domain knowledge (ranking education levels) significantly impacts prediction accuracy.*
+
 ---
 *Developed by Ergün Üngör*
